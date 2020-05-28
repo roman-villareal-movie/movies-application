@@ -9,13 +9,13 @@ sayHello('World');
  * require style imports
  */
 
+
 //Jquery: install
 var $ = require("jquery");
 
-//test for jquery functionality
-// $('body').css('background-color', 'blue');
 
-const {getMovies} = require('./api.js');
+
+const {getMovies, addNewMovie} = require('./api.js');
 
 getMovies().then((movies) => {
     console.log('Here are all the movies:');
@@ -28,45 +28,47 @@ getMovies().then((movies) => {
 });
 
 
-//Purpose of this is to show all movies on page!
-// getMovies().then((movies) => {
-//     //append to HTML or
-//     console.log('test for show movies')
-//     console.log(movies)
-//     $('.showmovie').click(function () {
-//         movies.forEach(({title, rating, id}) => {
-//             //append to HTML or
-//             $(this).val()
+                            //=====loading=====//
+
+// var myVar;
 //
-//             $('#movie-show').html(`id#${movie.id} - ${movie.title} - rating: ${movie.rating}`);
-//         })
-//     }).catch((error) => {
-//         alert("movies failed to load");
-//         console.log(error);
-//     })
-// })
+// function myFunction() {
+//     myVar = setTimeout(showPage, 3000);
+// }
+//
+// function showPage() {
+//     document.getElementById("loader").style.display = "none";
+//     document.getElementById("myDiv").style.display = "block";
+// }
+//
+// myFunction();
 
 
-//Second Choice:
+                            //=====DISPLAY MOVIE LIST=====??
 
-    //append to HTML or
-    // console.log('test for show movies')
-    // console.log(movies)
-    // $('.show-movie').click(function () {
+
         const makeHtml = (movies) => {
             let html = "";
             movies.forEach((movie) => {
                 //append to HTML or
-                html += `<div> Title: ${movie.title}</div>`
-                html += `<div>Rating: ${movie.rating}</div>`
-                html += `<div>Movie: ${movie.id}</div>`
+                html += `<div> Title: ${movie.title}</div>`;
+                html += `<div>Rating: ${movie.rating}</div>`;
 
 
-            })
+            });
             return html;
-        }
+        };
         getMovies().then((movies) => {
             $('#movie-show').ready().append(makeHtml(movies))
-            // $('#movie-show').append(makeHtml(`id#${movies.id} - ${movies.title} - rating: ${movies.rating}`));
         });
-    // })
+
+
+                             //=====ADD MOVIES=====//
+
+        $('#add-movie').click(function(e) {
+            e.preventDefault();
+            let movieTitle = $('#movie-title').val();
+            let movieRating  = $('#movie-rating').val();
+            addNewMovie(movieTitle, movieRating)
+});
+
