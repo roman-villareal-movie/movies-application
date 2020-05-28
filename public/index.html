@@ -4,49 +4,42 @@
     <meta charset="UTF-8" />
     <title>My Application</title>
 
-    <style>
-        /* This only works with JavaScript,
-           if it's not present, don't show loader */
-        .no-js #loader { display: none;  }
-        .js #loader { display: block; position: absolute; left: 100px; top: 0; }
-    </style>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-
-
-    <script src="https://github.com/Modernizr/Modernizr/raw/master/modernizr.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css" />
-
-
-        <!--  Start of loading script  -->
-    <script>
-        // Wait for window load
-        $(window).load(function() {
-            // Animate loader off screen
-            $("#loader").animate({
-                top: -200
-            }, 1500);
-        });
-    </script>
 </head>
-<body>
-<!--    image loader for loading animation-->
-<img src="download.png" id="loader">
+<body  style="margin:0;">
 
-
-<img src="//farm6.static.flickr.com/5299/5400751421_55d49b2786_o.jpg">
-<!--End of loader-->
 
     <div class="container">
         <h1>Hello There!</h1>
         <p>To get started, edit <code>src/index.js</code>.</p>
     </div>
-    <div id="movie-show">
 
+    <div class="title" id="form-container">
+        <form id="new-movie-form">
+            <h3>Add another movie?</h3>
+
+            <label for="movie-title">Movie title</label>
+            <input type="text" id="movie-title">
+
+            <label for="movie-rating">Movie rating</label>
+            <input type="text" id="movie-rating">
+
+            <button id="add-movie">Add Movie</button>
+        </form>
     </div>
-    <button class="show-movie" type="input">Click to show Movies!</button>
+
+    <div id="movie-show"></div>
 
 
 
+
+<div id="loader"></div>
+<div style="display:none;" id="myDiv" class="animate-bottom">
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="./main.js"></script>
 </body>
 </html>
