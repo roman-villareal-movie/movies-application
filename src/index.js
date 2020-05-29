@@ -114,9 +114,9 @@ getMovies().then((movies) => {
     //         });
     // });
 
-
+    //on click it should console log objects in ID
     $(document).on("click", "button.deleteMovies", function() {
-        return fetch(`/api/movies/${movieID}`)
+        return fetch(`/api/movies`)
             .then(response => response.json())
             .then(movies => {
                 let movieID = [];
