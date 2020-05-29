@@ -15,7 +15,11 @@ var $ = require("jquery");
 
 
 
+
+
 const {getMovies, addNewMovie, deleteData} = require('./api.js');
+$(document).ready(function(){
+
 
 getMovies().then((movies) => {
     console.log('Here are all the movies:');
@@ -55,9 +59,9 @@ getMovies().then((movies) => {
                 // html += `<div>Rating: ${movie.rating}</div>`;
                 html += '<div class="tile">';
                 html += "<div class='movieTitle'>" + "title: " + movie.title + "</div>";
-                html += "<div>" + "rating: " + movie.rating + "</div>";
-                html += "<div><button>"+"edit"+"</button></div>";
-                html += "<div><button>"+"delete"+"</button></div>";
+                html += "<div class='movieRatingClass'>" + "rating: " + movie.rating + "</div>";
+                html += "<button class='editButton'>"+"edit"+"</button>";
+                html += "<button class='deleteMovies'>"+"delete"+"</button>";
                 html += "</div>";
 
             });
@@ -80,8 +84,41 @@ getMovies().then((movies) => {
             });
 });
 
+                        //==========DELETE MOVIES=======//
 
-
-        // $('.delete-button').click(function(event) {
-        //     $('.movieTitle')
+        // $('.deleteMovies').each(function() {
+        //
+        //     $(this).click(function(e) {
+        //         e.preventDefault();
+        //         console.log('hello')
+        //
+        //     })
+        //
+        //
         // });
+
+    //===========SOPHIE EXAMPLE========///
+
+    // $(document).on("click","button.deleteMovies",function(){
+    //     console.log("hello");
+    // })
+
+    //==============END===================///
+
+    $(document).on("click", "button.deleteMovies", function() {
+        // let objIdMovies = {"movies": id}
+        console.log(getMovies());
+    })
+
+    // $(document).on("click", "button.deleteMovies", function() {
+    //
+    // $.get('/api/movies/').done (function(resp) {
+    //     $.each(resp, function(index, movies){
+    //         movies.id
+    //     });
+    // })
+    //
+    // console.log(movies.id)
+    //
+    // })
+})

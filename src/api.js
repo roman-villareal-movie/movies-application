@@ -19,7 +19,26 @@ module.exports = {
           .catch(/* handle errors */)
     },
 
+  //Method for using delete button to delete movies.
+  deleteData: (id) => {
+    const deleteMovie = {id:id};
+    const urlDelete = '/api/movies/${id}';
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    };
 
+      fetch(urlDelete,  options)
+    method: 'delete'
+    .then(response =>
+      response.json().then(json => {
+        return json;
+      })
+
+  );
+}
 
 
 };
