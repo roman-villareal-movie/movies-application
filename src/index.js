@@ -105,20 +105,23 @@ getMovies().then((movies) => {
 
     //==============END===================///
 
-    $(document).on("click", "button.deleteMovies", function() {
-        // let objIdMovies = {"movies": id}
-        console.log(getMovies());
-    })
-
     // $(document).on("click", "button.deleteMovies", function() {
-    //
-    // $.get('/api/movies/').done (function(resp) {
-    //     $.each(resp, function(index, movies){
-    //         movies.id
-    //     });
-    // })
-    //
-    // console.log(movies.id)
-    //
-    // })
-})
+    //     let movieID =
+    //     return fetch('/api/movies')
+    //         .then(response => response.json())
+    //         .then(movies => {
+    //             console.log(movies[0].id);
+    //         });
+    // });
+
+
+    $(document).on("click", "button.deleteMovies", function() {
+        return fetch(`/api/movies/${movieID}`)
+            .then(response => response.json())
+            .then(movies => {
+                let movieID = [];
+                movieID.push(movies[0].id);
+                console.log(movieID);
+            });
+    });
+});
