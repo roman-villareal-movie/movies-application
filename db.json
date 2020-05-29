@@ -29,6 +29,11 @@
       "title": "Random Movie",
       "rating": "5",
       "id": 6
+    },
+    {
+      "title": "thor",
+      "rating": "4",
+      "id": 7
     }
   ]
 }
