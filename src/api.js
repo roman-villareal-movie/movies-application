@@ -21,8 +21,8 @@ module.exports = {
 
   //Method for using delete button to delete movies.
   deleteData: (movieID) => {
-    const deleteMovie = {id:movieID};
-    const urlDelete = '/api/movies/${id}';
+    const deleteMovie = {id: movieID};
+    const urlDelete = '/api/movies';
     const options = {
       method: 'DELETE',
       headers: {
@@ -35,6 +35,8 @@ module.exports = {
         response.json().then(json => {
         return json;
       })
+
+
 
   );
 }
