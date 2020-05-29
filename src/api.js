@@ -21,8 +21,7 @@ module.exports = {
 
   //Method for using delete button to delete movies.
   deleteData: (movieID) => {
-    const deleteMovie = {id: movieID};
-    const urlDelete = '/api/movies';
+    const urlDelete = `/api/movies/${movieID}`;
     const options = {
       method: 'DELETE',
       headers: {
@@ -30,7 +29,7 @@ module.exports = {
       },
     };
 
-      fetch(urlDelete,  options, deleteMovie)
+      fetch(urlDelete,  options)
         .then(response =>
         response.json().then(json => {
         return json;

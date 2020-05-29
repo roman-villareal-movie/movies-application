@@ -115,7 +115,7 @@ getMovies().then((movies) => {
     // });
 
     //on click it should console log objects in ID
-    $(document).on("click", "button.deleteMovies", function() {
+    $(document).on("click", "button.deleteMovies", function(e) {
         return fetch(`/api/movies`)
             .then(response => response.json())
             .then(movies => {
@@ -124,4 +124,9 @@ getMovies().then((movies) => {
                 console.log(movieID);
             });
     });
+
+    // console log the event target: e.target
+    // console log the event target with jquery:  $(e.target)
+    // add a data attribute for the id on the buttons (<button data-id=${id}></button>)
+    // console.log the value of the data attribute when you click the button: $(e.target).data('id')
 });
