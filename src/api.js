@@ -6,7 +6,7 @@ module.exports = {
 
     addNewMovie: (movieTitle, movieRating) => {
       const newMovie = {title: movieTitle, rating: movieRating};
-      const url = 'api/movies';
+      const url = '/api/movies';
       const options = {
         method: 'POST',
         headers: {
@@ -18,4 +18,8 @@ module.exports = {
           .then(/* post was created successfully */)
           .catch(/* handle errors */)
     },
-  };
+
+
+
+
+};

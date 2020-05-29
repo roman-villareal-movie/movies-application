@@ -15,7 +15,7 @@ var $ = require("jquery");
 
 
 
-const {getMovies, addNewMovie} = require('./api.js');
+const {getMovies, addNewMovie, deleteData} = require('./api.js');
 
 getMovies().then((movies) => {
     console.log('Here are all the movies:');
@@ -51,9 +51,14 @@ getMovies().then((movies) => {
             let html = "";
             movies.forEach((movie) => {
                 //append to HTML or
-                html += `<div> Title: ${movie.title}</div>`;
-                html += `<div>Rating: ${movie.rating}</div>`;
-
+                // html += `<div> Title: ${movie.title}</div>`;
+                // html += `<div>Rating: ${movie.rating}</div>`;
+                html += '<div class="tile">';
+                html += "<div class='movieTitle'>" + "title: " + movie.title + "</div>";
+                html += "<div>" + "rating: " + movie.rating + "</div>";
+                html += "<div><button>"+"edit"+"</button></div>";
+                html += "<div><button>"+"delete"+"</button></div>";
+                html += "</div>";
 
             });
             return html;
@@ -69,6 +74,14 @@ getMovies().then((movies) => {
             e.preventDefault();
             let movieTitle = $('#movie-title').val();
             let movieRating  = $('#movie-rating').val();
-            addNewMovie(movieTitle, movieRating)
+            addNewMovie(movieTitle, movieRating);
+            getMovies().then((movies) => {
+                $('#movie-show').empty().append(makeHtml(movies))
+            });
 });
 
+
+
+        // $('.delete-button').click(function(event) {
+        //     $('.movieTitle')
+        // });
