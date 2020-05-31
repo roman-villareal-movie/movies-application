@@ -60,8 +60,8 @@ getMovies().then((movies) => {
                 html += '<div class="tile">';
                 html += "<div class='movieTitle'>" + "title: " + movie.title + "</div>";
                 html += "<div class='movieRatingClass'>" + "rating: " + movie.rating + "</div>";
-                html += "<button class='editButton'>"+"edit"+"</button>";
-                html += "<button class='deleteMovies'>"+"delete"+"</button>";
+                html += "<button class='editButton btn btn-outline-primary'>"+"edit"+"</button>";
+                html += `<button data-id="${movie.id}" class='deleteMovies btn btn-outline-danger'>delete</button>`;
                 html += "</div>";
 
             });
@@ -116,13 +116,20 @@ getMovies().then((movies) => {
 
     //on click it should console log objects in ID
     $(document).on("click", "button.deleteMovies", function(e) {
+        $(e.target).data('id')
+        console.log(e.target);
+
         return fetch(`/api/movies`)
-            .then(response => response.json())
-            .then(movies => {
-                let movieID = [];
-                movieID.push(movies[0].id);
-                console.log(movieID);
-            });
+
+
+
+            .then(response => console.log(response.json()))
+
+        // .then(movies => {
+        //     let movieID = [];
+        //     console.log(e);
+        //     movieID.push(movies[0].id);
+        // });
     });
 
     // console log the event target: e.target
