@@ -6,16 +6,6 @@
       "id": 2
     },
     {
-      "title": "Random Movie",
-      "rating": "5",
-      "id": 6
-    },
-    {
-      "title": "guardians of the galaxy",
-      "rating": "5",
-      "id": 9
-    },
-    {
       "title": "Joker",
       "rating": "5",
       "id": 10
@@ -24,11 +14,6 @@
       "title": "Batman: the Dark Knight Returns pt:1 ",
       "rating": "5",
       "id": 11
-    },
-    {
-      "title": "Batman: the Dark Knight Returns pt:2",
-      "rating": "5",
-      "id": 12
     },
     {
       "title": "Justice League: war",

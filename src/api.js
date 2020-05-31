@@ -20,25 +20,37 @@ module.exports = {
     },
 
   //Method for using delete button to delete movies.
-  deleteData: (movieID) => {
-    const urlDelete = `/api/movies/${movieID}`;
+    deleteData: (movieID) => {
+      const urlDelete = `/api/movies/${movieID}`;
+      const options = {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      };
+        fetch(urlDelete,  options)
+          .then(response =>
+          response.json().then(json => {
+          return json;
+        })
+    );
+  },
+
+  editData: (newRating) => {
+    const urlEdit = `/api/movies/${newRating}`;
     const options = {
-      method: 'DELETE',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
     };
-
-      fetch(urlDelete,  options)
+    fetch(urlEdit,  options)
         .then(response =>
-        response.json().then(json => {
-        return json;
-      })
-
-
-
-  );
-}
+            response.json().then(json => {
+              return json;
+            })
+        );
+  }
 
 
 };
