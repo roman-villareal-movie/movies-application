@@ -1,29 +1,9 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
-      "id": 1
-    },
-    {
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
-    },
-    {
-      "title": "joker",
-      "rating": "5",
-      "id": 3
-    },
-    {
-      "title": "Joker",
-      "rating": "5",
-      "id": 4
-    },
-    {
-      "title": "Lord of the Rings",
-      "rating": "5",
-      "id": 5
     },
     {
       "title": "Random Movie",
@@ -31,9 +11,29 @@
       "id": 6
     },
     {
-      "title": "thor",
-      "rating": "4",
-      "id": 7
+      "title": "guardians of the galaxy",
+      "rating": "5",
+      "id": 9
+    },
+    {
+      "title": "Joker",
+      "rating": "5",
+      "id": 10
+    },
+    {
+      "title": "Batman: the Dark Knight Returns pt:1 ",
+      "rating": "5",
+      "id": 11
+    },
+    {
+      "title": "Batman: the Dark Knight Returns pt:2",
+      "rating": "5",
+      "id": 12
+    },
+    {
+      "title": "Justice League: war",
+      "rating": "5",
+      "id": 13
     }
   ]
 }

@@ -82,7 +82,7 @@ getMovies().then((movies) => {
             getMovies().then((movies) => {
                 $('#movie-show').empty().append(makeHtml(movies))
             });
-});
+        });
 
                         //==========DELETE MOVIES=======//
 
@@ -116,15 +116,13 @@ getMovies().then((movies) => {
 
     //on click it should console log objects in ID
     $(document).on("click", "button.deleteMovies", function(e) {
-        $(e.target).data('id')
-        console.log(e.target);
-
-        return fetch(`/api/movies`)
-
-
-
-            .then(response => console.log(response.json()))
-
+        let movieID = $(e.target).data('id');
+        deleteData(movieID);
+        getMovies().then((movies) => {
+            $('#movie-show').empty().append(makeHtml(movies))
+        });
+        // return fetch(`/api/movies`)
+        // .then(response => console.log(response.json()))
         // .then(movies => {
         //     let movieID = [];
         //     console.log(e);
