@@ -60,10 +60,10 @@ getMovies().then((movies) => {
                 html += '<div class="tile">';
                 html += "<div class='movieTitle'>" + "title: " + movie.title + "</div>";
                 html += "<div class='movieRatingClass'>" + "rating: " + movie.rating + "</div>";
-                // html += `<form id="editForm"
-                //          <label for="editForm">Edit Rating</label>
-                //          <input type="text">
-                //          </form>`;
+                html += `<form id="editForm"
+                         <label for="editForm">Edit Rating</label>
+                         <input id="ratingButton" class="rating-Button" type="text">
+                         </form>`;
                 html += `<button data-rating="${movie.rating}" class='editMovies btn btn-outline-primary'>edit</button>`;
                 html += `<button data-id="${movie.id}" class='deleteMovies btn btn-outline-danger'>delete</button>`;
                 html += "</div>";
@@ -108,12 +108,16 @@ getMovies().then((movies) => {
                             //=====EDIT BUTTON=====//
     $(document).on("click", "button.editMovies", function(e) {
         e.preventDefault();
-        let newRating = $('#editForm').val();
-        // editData(newRating);
-        console.log(newRating);
-        // getMovies().then((movies) => {
-        //     $('#movie-show').empty().append(makeHtml(movies))
-        // });
+        // let newRating = $(e.target).data('id');
+        let editRating = $('#ratingButton').val();
+
+
+        // $('.ratingButton').text();
+        editData(editRating);
+        console.log(editRating);
+        getMovies().then((movies) => {
+            $('#movie-show').empty().append(makeHtml(movies))
+        });
     });
 
 
