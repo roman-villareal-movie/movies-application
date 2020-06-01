@@ -1,3 +1,10 @@
+// const editOptions = {
+//   method: 'PUT',
+//   headers: {
+//     'Content-Type': 'application/json',
+//   }
+// };
+
 module.exports = {
   getMovies: () => {
     return fetch('/api/movies')
@@ -35,17 +42,19 @@ module.exports = {
         })
     );
   },
-  //Method for using edit button to edit movies
-  editData: (editRating, movieID) => {
+
+
+  // Method for using edit button to edit movies
+  editData: (movieID, movieRating) => {
     const urlEdit = `/api/movies/${movieID}`;
     const editOptions = {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({editRating}),
+      body: JSON.stringify({movieRating}),
     };
-    fetch(urlEdit,  editOptions)
+    fetch(urlEdit, editOptions)
         .then(response =>
             response.json().then(json => {
               return json;
