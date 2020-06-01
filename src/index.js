@@ -62,7 +62,7 @@ getMovies().then((movies) => {
                 html += "<div class='movieRatingClass'>" + "rating: " + movie.rating + "</div>";
                 html += `<form id="editForm"
                          <label for="editForm">Edit Rating</label>
-                         <input id="editedRating" type="text">
+                         <input id="editedRating" type="number">
                          </form>`;
                 html += `<button data-rating="${movie.rating}" class='editRating btn btn-outline-primary'>edit</button>`;
                 html += `<button data-id="${movie.id}" class='deleteMovies btn btn-outline-danger'>delete</button>`;
