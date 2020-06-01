@@ -1,16 +1,6 @@
 {
   "movies": [
     {
-      "title": "Batman: the Dark Knight Returns pt:1 ",
-      "rating": "5",
-      "id": 1
-    },
-    {
-      "title": "Toxic Avenger",
-      "rating": "4",
-      "id": 5
-    },
-    {
       "title": "The Witch",
       "rating": "5",
       "id": 6
@@ -19,6 +9,11 @@
       "title": "Joker",
       "rating": "5",
       "id": 7
+    },
+    {
+      "title": "joker",
+      "rating": "4",
+      "id": 9
     }
   ]
 }
