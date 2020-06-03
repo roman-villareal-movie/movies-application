@@ -45,14 +45,15 @@ module.exports = {
 
 
   // Method for using edit button to edit movies
-  editData: (movieID, movieRating) => {
+  editData: (movieID, movieRating, movieTitle) => {
+    let movieObjectEdit = {id: movieID, rating: movieRating, title: movieTitle};
     const urlEdit = `/api/movies/${movieID}`;
     const editOptions = {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({movieRating}),
+      body: JSON.stringify(movieObjectEdit),
     };
     fetch(urlEdit, editOptions)
         .then(response =>

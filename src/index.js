@@ -62,9 +62,9 @@ getMovies().then((movies) => {
                 html += "<div class='movieRatingClass'>" + "rating: " + movie.rating + "</div>";
                 html += `<form id="editForm"
                          <label for="editForm">Edit Rating</label>
-                         <input id="editedRating" type="number">
+                         <input id="editedRating${movie.id}" type="number">
                          </form>`;
-                html += `<button data-rating="${movie.rating}" class='editRating btn btn-outline-primary'>edit</button>`;
+                html += `<button data-rating="${movie.rating}" data-title="${movie.title}" class='editRating btn btn-outline-primary'>edit</button>`;
                 html += `<button data-id="${movie.id}" class='deleteMovies btn btn-outline-danger'>delete</button>`;
                 html += "</div>";
 
@@ -107,14 +107,20 @@ getMovies().then((movies) => {
 
                             //=====EDIT BUTTON=====//
     $(document).on("click", "button.editRating", function(e) {
-        let movieID = $(e.target).data('id');
+        let movieID = $(e.target).next().attr('data-id');
 
         let movieRating = $(e.target).data('rating');
         console.log(movieRating);
-        let rating = $("#editedRating").val();
+
+        let movieTitle = $(e.target).data('title');
+
+
+        //concatenate ID from form when entered on button press
+        let idString = "#editedRating" + movieID;
+        let rating = $(idString).val();
         console.log(rating);
 
-        editData(movieID, rating);
+        editData(movieID, rating, movieTitle);
         getMovies().then((movies) => {
             $('#movie-show').empty().append(makeHtml(movies))
         });
